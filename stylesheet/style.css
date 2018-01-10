@@ -1,0 +1,406 @@
+@import url(https://cdn.rawgit.com/studio392/NanumSquareRound/master/NanumSquareRound.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration:inherit;
+    margin: inherit;
+    padding: inherit;
+    font: inherit;
+}
+
+body { font-family:'NanumSquareRound'; }
+
+.ptr {
+    cursor: pointer;
+}
+
+/*    header     */
+
+header {
+    background-color: #92CD4C;
+    height: 130px;
+    width: 100%;
+    color: white;
+    -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.container {
+    width: 750px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+
+.logo_small .img_small {
+    background-image: url(/images/panda.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 22px;
+    width: 22px;
+    margin: 4px;
+}
+
+.logo_small {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    float: left;
+    border-radius: 100%;
+    -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+    margin-right: 10px;
+}
+
+.logo .img {
+    background-image: url(/images/panda.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
+    margin: 8px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    float: left;
+    border-radius: 100%;
+    -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+    margin-right: 20px;
+}
+
+header h2 {
+    font-size: 18px;
+    font-weight: normal;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+    margin: 3.5px 0;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: normal;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+}
+
+header #login {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    float: right;
+}
+
+header #logout {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    float: right;
+}
+
+header span#contact {
+    color: rgba(255, 255, 255, 0.61);
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.48);
+    font-size: 20px;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+    float: right;
+}
+
+header span#contact:hover {
+    text-shadow: 0px 0px 25px rgb(0, 0, 0);
+    color: white;
+}
+
+#searchMenu {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    top :30px;
+    -webkit-box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.34);
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.34);
+    border: none;
+    font-size: 18px;
+    padding-left: 15px;
+    color: #5d5d5d;
+}
+
+.search {
+    font: inherit;
+    border: inherit;
+    text-decoration: inherit;
+    border: inherit;
+    margin: inherit;
+    color: #ff5555;
+}
+
+/*    login     */
+
+#loginModal {
+    color: black;
+    position: absolute;
+    left: 50%;
+    width: 750px;
+    margin-left: -375px;
+    background-color: white;
+    z-index: 30;
+    padding: 40px;
+    font-size: 18px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.49);
+    display: none;
+}
+
+#loginModal.viewOn {
+    display: block;
+}
+
+#loginModal input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/*    contact     */
+
+#contactModal {
+    display: none;
+}
+
+#opacityBg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.33);
+    z-index: 20;
+}
+
+.contactCreate {
+    color: black;
+    position: absolute;
+    left: 50%;
+    width: 750px;
+    margin-left: -375px;
+    background-color: white;
+    z-index: 30;
+    padding: 40px;
+    font-size: 18px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.49);
+}
+
+.exitBtn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    float: right;
+    color: white;
+    background-color: #484848;
+    -webkit-transform:  translate(30px,-30px);
+    -ms-transform:  translate(30px,-30px);
+    -o-transform:  translate(30px,-30px);
+    transform:  translate(30px,-30px);
+    -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    -webkit-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    transition: background-color .2s;
+}
+
+.exitBtn:hover {
+    background-color: #818181;
+}
+
+.contactCreate input {
+    border: none;
+    border-bottom: 1px solid gray;
+    margin: 10px 0;
+}
+    
+.contactCreate textarea {
+    font-size: 13px;
+    padding: 20px;
+    margin-bottom: 10px;
+    resize: none;
+    width: 100%;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #92CD4C;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+input[type="submit"]:hover {
+    background-color: rgba(146, 205, 76, 0.76);
+}
+
+#contactModal.viewOn {
+    display: block;
+}
+
+#contactModal.viewOn #opacityBg {
+    -webkit-animation:reveal 0.5s forwards;
+    -o-animation:reveal 0.5s forwards;
+    animation:reveal 0.5s forwards;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#contactModal.viewOn .contactCreate {
+    -webkit-animation: viewDown 0.3s forwards;
+    -o-animation: viewDown 0.3s forwards;
+    animation: viewDown 0.3s forwards;
+}
+
+@keyframes viewDown {
+    from {
+        top: -400px;
+    }
+    to {
+        top: 30px;
+    }
+}
+
+/*    contents     */
+
+.contents {
+    width: 750px;
+    margin: auto;
+    padding-top: 80px;
+    color: #505050;
+}
+
+.cards {
+    -webkit-box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.17);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.17);
+    position: relative;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.contents h3 {
+    font-weight: normal;
+    margin-bottom: 20px;
+    margin-top: 130px;
+}
+
+.text {
+    margin-bottom: 20px;
+}
+
+p.textTitle {
+    font-size: 18px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.facebook {
+    background-image: url(/images/facebook.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    /*border: 1px solid black;*/
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.edit {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.edit a button {
+    font-size: 15px;
+    background-color: white;
+    border: none;
+    color: rgba(0, 0, 0, 0.2);
+    -webkit-transition: color .5s;
+    -o-transition: color .5s;
+    transition: color .5s; 
+}
+
+.edit a button:hover {
+    color: #989898;
+}
+
+/*    pagination     */
+
+.pagination {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pagination .pagelink {
+    display: inline-block;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    -webkit-transition: background-color .3s;
+    -o-transition: background-color .3s;
+    transition: background-color .3s;
+    padding: 6px;
+    width: 40px;
+    text-align: center;
+}
+
+.pagination a.active {
+    background-color: #92CD4C;
+    color: white;
+}
+
+.pagination .pagelink:hover:not(.active) {
+    background-color: #d3d3d3;
+}
+
+/*    footer     */
+
+footer {
+    margin-top: 100px;
+    height: 150px;
+    background-color: #484848;
+    width: 100%;
+}
+
+@media(max-width:800px) {
+    .container {
+        width: 90vw;
+    }
+    .contactCreate,#loginModal {
+        width: 90vw;
+        margin-left: -45vw;
+    }
+    .contents {
+        width: 90vw;
+    }
+}
