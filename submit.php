@@ -24,7 +24,7 @@
     if($agree !== "on"){
         echo "<script>alert('약관에 동의해주세요!'); history.back();</script>";
     }else{
-        if(strlen($body) < 10){
+        if(mb_strlen($body, "UTF-8") < 10){
             echo "<script>alert('최소 10자 이상 등록해주세요..'); history.back();</script>";
         }else{
             $resp = recaptcha_check_answer($captcha_private,

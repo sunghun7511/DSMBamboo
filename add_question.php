@@ -23,11 +23,11 @@
         }
 
         if(isset($_POST["question"])){
-            $question = $_POST["question"];
-            $type = $_POST["type"];
-            $prefix = $_POST["prefix"];
-            $suffix = $_POST["suffix"];
-            $answer = $_POST["answer"];
+            $question = mysqli_real_escape_string($conn, stripslashes($_POST["question"]));
+            $type = mysqli_real_escape_string($conn, stripslashes($_POST["type"]));
+            $prefix = mysqli_real_escape_string($conn, stripslashes($_POST["prefix"]));
+            $suffix = mysqli_real_escape_string($conn, stripslashes($_POST["suffix"]));
+            $answer = mysqli_real_escape_string($conn, stripslashes($_POST["answer"]));
             
             if(mysqli_query($conn, "INSERT INTO BAMBOO_QUESTIONS (QUESTION, TYPE, PREFIX, SUFFIX, ANSWER) VALUES ('$question', '$type', '$prefix', '$suffix', '$answer')")){
                 echo "<h1>Success!</h1><br>";
