@@ -10,13 +10,7 @@
     
     session_start();
 
-    // for DB Connect
-    include("/home/ubuntu/.sec/secure.php");
-    $conn = mysqli_connect("localhost", $dbLoginID, $dbLoginPW, "mysql");
-    
-    if(!$conn){
-        die("con fail.. : ".mysql_error());
-    }
+    include_once("sql_lib.php");
 
     /*
     TABLE NAME : BAMBOO_ADMINS

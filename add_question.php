@@ -6,17 +6,11 @@
     <?php
         session_start();
 
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-
-        // for DB Connect
-        include("/home/ubuntu/.sec/secure.php");
-        $conn = mysqli_connect("localhost", $dbLoginID, $dbLoginPW, "mysql");
+        // ini_set('display_errors', 1);
+        // ini_set('display_startup_errors', 1);
+        // error_reporting(E_ALL);
         
-        if(!$conn){
-            die("con fail.. : ".mysql_error());
-        }
+        include_once("sql_lib.php");
 
         if(!isset($_SESSION["isAdmin"]) || !$_SESSION["isAdmin"]){
             die("You are not admin...\n</body>");

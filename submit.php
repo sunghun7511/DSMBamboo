@@ -2,14 +2,8 @@
     session_start();
     
     // for DB Connect
-    include("/home/ubuntu/.sec/secure.php");
-    $conn = mysqli_connect("localhost", $dbLoginID, $dbLoginPW, "mysql");
-    
+    include_once("sql_lib.php");
     require_once('recaptchalib.php');
-
-    if(!$conn){
-        die("<script>alert('con fail...".mysqli_error()."'); location.href='./';</script>");
-    }
 
     if(!isset($_SESSION["questionindex"])){
         die("error");

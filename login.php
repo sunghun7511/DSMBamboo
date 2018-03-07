@@ -1,13 +1,7 @@
 <?php
     session_start();
     
-    // for DB Connect
-    include("/home/ubuntu/.sec/secure.php");
-    $conn = mysqli_connect("localhost", $dbLoginID, $dbLoginPW, "mysql");
-    
-    if(!$conn){
-        die("<script>alert('con fail...".mysqli_error()."'); location.href='./';</script>");
-    }
+    include_once("sql_lib.php");
 
     function hash_password($input) {
         return hash('sha512', $input);

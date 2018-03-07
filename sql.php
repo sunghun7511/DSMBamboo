@@ -1,13 +1,7 @@
 <?php
     session_start();
     
-    // for DB Connect
-    include("/home/ubuntu/.sec/secure.php");
-    $conn = mysqli_connect("localhost", $dbLoginID, $dbLoginPW, "mysql");
-    
-    if(!$conn){
-        die("<script>alert('con fail...".mysqli_error()."'); location.href='./';</script>");
-    }
+    include_once("sql_lib.php");
     
     if(!isset($_SESSION["isAdmin"]) || !$_SESSION["isAdmin"]){
         die("You are not admin...\n</body>");
