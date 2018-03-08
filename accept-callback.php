@@ -16,7 +16,7 @@
 
     $fb = new \Facebook\Facebook([
         'app_id' => '402562633493022',
-        'app_secret' => $app_secret,
+        'app_secret' => $fb_bamboo_secret,
         'default_graph_version' => 'v2.11',
       ]);
       
@@ -85,7 +85,7 @@
         $response = $fb->post(
             '/DSMBAMBOO/feed',
             array (
-                'message' => '#'.$fid.'번째대마
+                'message' => '#'.$fid.'번째_대마
 '.$array["TIME"].'
 
 '.$array["BODY"]),

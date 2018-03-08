@@ -1,8 +1,6 @@
 <?php
     $isAdmin = false;
     $username = null;
-    
-    require_once('recaptchalib.php');
 
     // ini_set('display_errors', 1);
     // ini_set('display_startup_errors', 1);
@@ -11,6 +9,15 @@
     session_start();
 
     include_once("sql_lib.php");
+    include("/var/www/captcha_key.php");
+    
+    require_once("recaptchalib.php");
+    use Phelium\Component\reCAPTCHA;
+
+    $reCAPTCHA = new reCAPTCHA($captcha_public, $captcha_private);
+
+    $reCAPTCHA->setTheme("light");
+    $reCAPTCHA->setLanguage("ko");
 
     /*
     TABLE NAME : BAMBOO_ADMINS
@@ -74,6 +81,9 @@
     <title>대마고 대나무숲</title>
     <link rel="stylesheet" href="stylesheet/style.css">
     <script src="script/script.js"></script>
+    <?php
+        echo $reCAPTCHA->getScript();
+    ?>
 </head>
 <body>
 <div
@@ -131,7 +141,7 @@
                         ?>
                         <textarea name="body" id="" cols="30" rows="10" placeholder="내용을 입력해 주세요. (10자 이상)"></textarea>
                         <a href="http://dsmbamboo.lapio.kr/privacy" target="_blank" style="color: #5555bb;">약관</a>에 동의합니다<input type="checkbox" name="agree"><br>
-                        <center><?php echo recaptcha_get_html($captcha_public); ?></center><br>
+                        <center><?php echo $reCAPTCHA->getHtml(); ?></center><br>
                         <input type="submit" value="작성">
                     </form>
                 </div>
@@ -212,7 +222,7 @@
                         '.($isAdmin&&$isuploaded?"(페이스북 ".$facebook."번째 글)":"").'</p>
                         <br /><article class="text">'.$body.'</article><br />';
                     if($isuploaded){
-                        echo '<a href="https://www.facebook.com/hashtag/'.$facebook_link.'%EB%B2%88%EC%A7%B8%EB%8C%80%EB%A7%88" class="facebook"></a>';
+                        echo '<a href="https://www.facebook.com/hashtag/'.$facebook_link.'%EB%B2%88%EC%A7%B8_%EB%8C%80%EB%A7%88" class="facebook"></a>';
                     }else if($isAdmin){
                         echo '<div class="edit">
                         <a href="./accept.php?id='.$nn.'&accept=1">

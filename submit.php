@@ -1,13 +1,21 @@
 <?php
     session_start();
     
-    // for DB Connect
-    include_once("sql_lib.php");
-    require_once('recaptchalib.php');
 
     if(!isset($_SESSION["questionindex"])){
         die("error");
     }
+    // for DB Connect
+    include_once("sql_lib.php");
+    include("/var/www/captcha_key.php");
+    
+    require_once("recaptchalib.php");
+    use Phelium\Component\reCAPTCHA;
+
+    $reCAPTCHA = new reCAPTCHA($captcha_public, $captcha_private);
+
+    $reCAPTCHA->setTheme("light");
+    $reCAPTCHA->setLanguage("ko");
 
     $ques_index = $_SESSION["questionindex"];
     
@@ -21,11 +29,7 @@
         if(mb_strlen($body, "UTF-8") < 10){
             echo "<script>alert('최소 10자 이상 등록해주세요..'); history.back();</script>";
         }else{
-            $resp = recaptcha_check_answer($captcha_private,
-                                        $_SERVER["REMOTE_ADDR"],
-                                        $_POST["recaptcha_challenge_field"],
-                                        $_POST["recaptcha_response_field"]);
-            if (!$resp->is_valid) {
+            if (!$reCAPTCHA->isValid($_POST['g-recaptcha-response'])) {
                 echo "<script>alert('Recaptcha 가 올바르지 않습니다!\\n".$resp->error."'); history.back();</script>";
             } else {
                 $ques_index = mysqli_real_escape_string($conn, stripslashes($ques_index));
