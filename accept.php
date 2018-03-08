@@ -34,7 +34,7 @@
     $helper = $fb->getRedirectLoginHelper();
     
     $permissions = ['pages_show_list', 'manage_pages', 'publish_pages', 'publish_actions'];
-    $loginUrl = $helper->getLoginUrl('http://dsmbamboo.com/accept-callback.php', $permissions);
+    $loginUrl = $helper->getLoginUrl('http://'.$_SERVER['HTTP_HOST'].'/accept-callback.php', $permissions);
     
     echo '<script>location.href = "' . $loginUrl . '";</script>';
 ?>
