@@ -59,7 +59,7 @@
                     $time = date("Y-m-d H:i:s");
         
                     if(mysqli_query($conn, "INSERT INTO BAMBOO_POSTS (IP, TIME, BODY) VALUES ('$ip', '$time', '$body')")){
-                        echo "<script>alert('정상적으로 게시되었습니다.'); location.href='./';</script>";
+                        echo "<script>alert('정상적으로 게시되었습니다.\\n관리자가 수락한 이후 게시됩니다!'); location.href='./';</script>";
                     }else{
                         echo "<script>alert('오류가 발생하였습니다.".mysqli_error($conn)."'); location.href='./';</script>";
                     }
